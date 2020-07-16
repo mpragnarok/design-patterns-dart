@@ -1,9 +1,8 @@
-import 'package:design_patterns_dart/1-Testing-the-Duck-Code/implementations/FlyNoWay.dart';
-import 'package:design_patterns_dart/1-Testing-the-Duck-Code/implementations/FlyRocketPowered.dart';
-
 import 'behaviors/FlyBehavior.dart';
 import 'behaviors/QuackBehavior.dart';
 import 'implementations/FlyWithWings.dart';
+import 'implementations/FlyNoWay.dart';
+import 'implementations/FlyRocketPowered.dart';
 import 'implementations/Quack.dart';
 import 'Duck.dart';
 import 'MallardDuck.dart';

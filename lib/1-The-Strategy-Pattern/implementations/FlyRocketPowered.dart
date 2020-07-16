@@ -1,4 +1,4 @@
-import 'package:design_patterns_dart/1-Testing-the-Duck-Code/behaviors/FlyBehavior.dart';
+import '../behaviors/FlyBehavior.dart';
 
 class FlyRocketPowered implements FlyBehavior {
   @override
