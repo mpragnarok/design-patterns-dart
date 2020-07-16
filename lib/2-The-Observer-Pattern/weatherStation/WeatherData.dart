@@ -40,4 +40,16 @@ class WeatherData implements Subject {
     _pressure = pressure;
     measurementsChanged();
   }
+
+  double getTemperature() {
+    return _temperature;
+  }
+
+  double getHumidity() {
+    return _humidity;
+  }
+
+  double getPressure() {
+    return _pressure;
+  }
 }
