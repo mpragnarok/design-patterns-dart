@@ -1,6 +1,6 @@
-import 'package:design_patterns_dart/3-The-Decorator-Pattern/Beverage.dart';
-import 'package:design_patterns_dart/3-The-Decorator-Pattern/CondimentDecorator.dart';
-import 'package:design_patterns_dart/3-The-Decorator-Pattern/Size.dart';
+import 'package:design_patterns_dart/3-The-Decorator-Pattern/Starbuzz/Beverage.dart';
+import 'package:design_patterns_dart/3-The-Decorator-Pattern/Starbuzz/CondimentDecorator.dart';
+import 'package:design_patterns_dart/3-The-Decorator-Pattern/Starbuzz/Size.dart';
 
 class Soy extends CondimentDecorator {
   Beverage beverage;

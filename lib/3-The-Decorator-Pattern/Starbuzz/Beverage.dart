@@ -1,4 +1,4 @@
-import 'package:design_patterns_dart/3-The-Decorator-Pattern/Size.dart';
+import 'package:design_patterns_dart/3-The-Decorator-Pattern/Starbuzz/Size.dart';
 
 abstract class Beverage {
   Size size = Size.TALL;
