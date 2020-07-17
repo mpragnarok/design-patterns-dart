@@ -5,21 +5,25 @@ import 'package:design_patterns_dart/3-The-Decorator-Pattern/HouseBlend.dart';
 import 'package:design_patterns_dart/3-The-Decorator-Pattern/Mocha.dart';
 import 'package:design_patterns_dart/3-The-Decorator-Pattern/Soy.dart';
 import 'package:design_patterns_dart/3-The-Decorator-Pattern/Whip.dart';
+import 'package:design_patterns_dart/3-The-Decorator-Pattern/Size.dart';
 
 void main() {
   Beverage beverage = new Espresso();
-  print('${beverage.getDescription()} \$${beverage.cost()}');
+  print('${beverage.getDescription()} \$${beverage.cost().toStringAsFixed(2)}');
 
   Beverage beverage2 = new DarkRoast();
 //  Wrap with decorators
   beverage2 = new Mocha(beverage2);
   beverage2 = new Mocha(beverage2);
   beverage2 = new Whip(beverage2);
-  print('${beverage2.getDescription()} \$${beverage2.cost()}');
+  print(
+      '${beverage2.getDescription()} \$${beverage2.cost().toStringAsFixed(2)}');
 
   Beverage beverage3 = new HouseBlend();
+  beverage3.setSize(Size.VENTI);
   beverage3 = new Soy(beverage3);
   beverage3 = new Mocha(beverage3);
   beverage3 = new Whip(beverage3);
-  print('${beverage3.getDescription()} \$${beverage3.cost()}');
+  print(
+      '${beverage3.getDescription()} \$${beverage3.cost().toStringAsFixed(2)}');
 }

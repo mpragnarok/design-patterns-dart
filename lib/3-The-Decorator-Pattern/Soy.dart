@@ -1,5 +1,6 @@
 import 'package:design_patterns_dart/3-The-Decorator-Pattern/Beverage.dart';
 import 'package:design_patterns_dart/3-The-Decorator-Pattern/CondimentDecorator.dart';
+import 'package:design_patterns_dart/3-The-Decorator-Pattern/Size.dart';
 
 class Soy extends CondimentDecorator {
   Beverage beverage;
@@ -7,11 +8,28 @@ class Soy extends CondimentDecorator {
 
   @override
   String getDescription() {
-    return beverage.getDescription() + ', Soy';
+    String description = beverage.getDescription();
+    if (beverage.getSize() == Size.TALL) {
+      description += ' (Size:Tall) ';
+    } else if (beverage.getSize() == Size.GRANDE) {
+      description += ' (Size: Grande) ';
+    } else if (beverage.getSize() == Size.VENTI) {
+      description += ' (Size: Venti) ';
+    }
+
+    return description + ', Soy';
   }
 
   @override
   double cost() {
-    return beverage.cost() + .15;
+    double cost = beverage.cost();
+    if (beverage.getSize() == Size.TALL) {
+      cost += .10;
+    } else if (beverage.getSize() == Size.GRANDE) {
+      cost += .15;
+    } else if (beverage.getSize() == Size.VENTI) {
+      cost += .20;
+    }
+    return cost;
   }
 }
