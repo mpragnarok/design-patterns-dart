@@ -18,10 +18,10 @@ abstract class Pizza {
   String toString() {
     StringBuffer display = new StringBuffer();
     display
-      ..write(name)
-      ..write(dough)
-      ..write(sauce)
-      ..writeAll(toppings);
+      ..write('---- $name ---- \n')
+      ..write('$dough \n')
+      ..write('$sauce \n')
+      ..writeAll(toppings, '\n');
     return display.toString();
   }
 }
