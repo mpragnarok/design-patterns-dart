@@ -1,16 +1,16 @@
-import 'SimplePizzaFactory.dart';
 import 'Pizza.dart';
 
-class PizzaStore {
-  SimplePizzaFactory factory;
-  PizzaStore(SimplePizzaFactory factory) {
-    this.factory = factory;
-  }
+// Change to abstract
+abstract class PizzaStore {
+//  define abstract createPizza method, Dart doesn't support protected keyword
+// Decoupling the client code in the superclass from the object creation code in the subclass
+  Pizza createPizza(String item);
 
+  // Pizza is abstract, so it's decoupled from Pizza
   Pizza orderPizza(String type) {
     Pizza pizza;
-    // replace the new operator with a create method on the factory object
-    pizza = factory.createPizza(type);
+    pizza = createPizza(type);
+    print('---Making a ${pizza.getName()} ---');
     pizza
       ..prepare()
       ..bake()
