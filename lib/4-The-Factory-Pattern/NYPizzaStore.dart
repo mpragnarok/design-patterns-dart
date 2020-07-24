@@ -1,23 +1,32 @@
+import 'package:design_patterns_dart/4-The-Factory-Pattern/CheesePizza.dart';
+import 'package:design_patterns_dart/4-The-Factory-Pattern/ClamPizza.dart';
+import 'package:design_patterns_dart/4-The-Factory-Pattern/NYPizzaIngredientFactory.dart';
+import 'package:design_patterns_dart/4-The-Factory-Pattern/PepperoniPizza.dart';
+import 'package:design_patterns_dart/4-The-Factory-Pattern/PizzaIngredientFactory.dart';
 import 'package:design_patterns_dart/4-The-Factory-Pattern/PizzaStore.dart';
+import 'package:design_patterns_dart/4-The-Factory-Pattern/VeggiePizza.dart';
 import 'Pizza.dart';
-import 'NYStyleCheesePizza.dart';
-import 'NYStyleClamPizza.dart';
-import 'NYStylePepperoniPizza.dart';
-import 'NYStyleVeggiePizza.dart';
 
 class NYPizzaStore extends PizzaStore {
   @override
   Pizza createPizza(String item) {
+    Pizza pizza;
+//     compose with a NY pizza ingredient factory
+    PizzaIngredientFactory ingredientFactory = new NYPizzaIngredientFactory();
     if (item == 'cheese') {
-      return new NYStyleCheesePizza();
+//      pass each pizza the factory to produce its ingredients
+      pizza = new CheesePizza(ingredientFactory);
+      pizza.setName('New York Style Cheese Pizza');
     } else if (item == 'veggie') {
-      return new NYStyleVeggiePizza();
+      pizza = new VeggiePizza(ingredientFactory);
+      pizza.setName('New York Style Veggie Pizza');
     } else if (item == 'clam') {
-      return new NYStyleClamPizza();
+      pizza = new ClamPizza(ingredientFactory);
+      pizza.setName('New York Style Clam Pizza');
     } else if (item == 'pepperoni') {
-      return new NYStylePepperoniPizza();
-    } else {
-      return null;
+      pizza = new PepperoniPizza(ingredientFactory);
+      pizza.setName('New York Style Pepperoni Pizza');
     }
+    return pizza;
   }
 }
